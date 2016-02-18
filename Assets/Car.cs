@@ -26,6 +26,17 @@ public class Car : MonoBehaviour {
 
             direction += Vector3.right;
         }
+        if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.UpArrow))
+        {
+            direction += Vector3.left;
+            direction += Vector3.up;
+        }
+        else if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.UpArrow))
+        {
+
+            direction += Vector3.right;
+            direction += Vector3.up;
+        }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
             direction += Vector3.up;
@@ -38,7 +49,7 @@ public class Car : MonoBehaviour {
         // restrict the player to the gamespace
         //float newX = Mathf.Clamp(transform.position.x, 0.5f, 16f);
         //float newY = Mathf.Clamp(transform.position.y, 0f, 10f);
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         transform.Translate(direction.normalized * 5 * Time.deltaTime);
     }
 }
